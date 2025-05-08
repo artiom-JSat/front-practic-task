@@ -5,6 +5,16 @@
   --foreground: #171717;
 }
 
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+.dark .task-item {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -12,15 +22,107 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.main-container {
+  @apply min-h-screen flex flex-col items-center p-8 transition-colors
+}
+
+.header {
+  @apply w-full max-w-md flex justify-between items-center mb-6
+}
+
+.header-title {
+  @apply text-4xl font-bold
+}
+
+.spinner-container {
+  @apply flex justify-center items-start min-h-screen p-16
+}
+
+.spinner {
+  @apply animate-spin border-t-4 border-blue-500 border-8 w-16 h-16 rounded-full;
+}
+
+button {
+  cursor: pointer;
+}
+
+.btn-switch-theme {
+  @apply text-2xl
+}
+
+.icon-light {
+  @apply text-gray-500 hover:text-black;
+}
+
+.icon-dark {
+  @apply text-yellow-500 hover:text-yellow-300;
+}
+
+.btn-add {
+  @apply bg-blue-500 text-white px-4 rounded hover:bg-blue-600;
+}
+
+.btn-delete {
+  @apply text-red-500 hover:text-red-700 text-xl
+}
+
+.task-header {
+  @apply flex justify-between items-center;
+}
+
+.task-info {
+  @apply flex items-center gap-2;
+}
+
+.task-toggle-btn {
+  @apply text-xl
+}
+
+.toggle-completed {
+  @apply text-green-500 hover:text-green-700
+}
+
+.toggle-incomplete {
+  @apply text-gray-400 hover:text-gray-700
+}
+
+
+.bg-foreground {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+.input-container {
+  @apply flex gap-2 mb-6 w-full max-w-md
+}
+
+.input-task {
+  @apply p-2 rounded border w-full
+}
+
+.task-list {
+  @apply w-full max-w-md space-y-2
+}
+
+.empty-list {
+  @apply text-center text-gray-500
+}
+
+.task-item {
+  @apply flex flex-col gap-2 p-3 rounded shadow
+}
+
+.text-muted {
+  color: var(--foreground);
+  opacity: 0.6;
+}
+
+.date-text {
+  @apply text-sm text-gray-500 opacity-60
 }
